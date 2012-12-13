@@ -1,0 +1,16 @@
+{"description": "committee data",
+ "type": "object",
+ "properties": {
+    "committee": {"type": "string"},
+    "subcommittee": {"type": ["null", "string"]},
+    "chamber": {"type": "string", "enum": ["upper", "lower", "joint"]},
+    "type": {"type": "string", "required": false},
+    "members": {"type": "array", "items": {"type": "object", "properties": {
+        "role": {"type": "string"},
+        "name": {"type": "string"}
+    }}},
+    "sources": {"type": "array", "items": {"type": "object", "properties": {
+        "url": {"type": "string"}
+    }}, "minItems": 1}
+ }
+}
