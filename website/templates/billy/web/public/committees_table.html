@@ -4,31 +4,38 @@
   <thead>
     <tr>
       <th class="sort"><a href="?key=committee&order={{ sort_order }}&chamber={{chamber}}">{% trans "Name" %}</th>
-      <th>{% trans "Members" %}</th>
+      <th class="theader">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% trans "Members" %}</th>
     </tr>
   </thead>
   {% for committee in committees %}
   <tr class="{% cycle odd,even %}">
     <td><a href="{{ committee.get_absolute_url }}">{{ committee.display_name }}</a></td>
     <td>
+    <div class="span16">
       {% if not committee.members %}
           [{% trans "data not yet available" %}]
       {% else %}
-        <ul class="inlineList noSpace">
+        <ul class="media-grid member-list" id="grid">
         {% for member, legislator_object in committee.members_objects %}
-          {% if member.leg_id %}
-            <li>
-                <a class="tip withTip" href="{{legislator_object.get_absolute_url}}">{{legislator_object.display_name}}{% if not forloop.last %},{% else %}{% endif %}</a>
-            </li>
+          {% if member.leg_id %}	            
+	            <li>
+	            	<a href="{{legislator_object.get_absolute_url}}" class="thumbnail">
+	            		<img src="http://placehold.it/90x90" class="thumb" rel="tooltip" data-original-title="{{legislator_object.display_name}}" alt="">
+	      {% if not forloop.last %}{% else %}{% endif %}
+	            	</a><p></p>
+	            </li>
           {% else %}
-          <li>
-            <span class="tip withTip">{{ member.name }}{% if not forloop.last %},{% else %}{% endif %}</span>
-          </li>
+              	<li>
+              		<a href="#" class="thumbnail">
+	              		<img src="http://placehold.it/90x90" class="thumb" rel="tooltip" data-original-title="Information not available" alt="">
+              		</a><p></p>
+              	</li>
           {% endif %}
         {% endfor %}
-        </ul>
+		</ul>
       {% endif %}
-    </td>
+	  </div>
+	</td>
   </tr>
   {% endfor %}
 </table>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} : billy admin</title>
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
     <script src="{% static "scripts/jquery-1.7.1.min.js" %}"></script>
     <script src="{% static "scripts/bootstrap.min.js" %}"></script>
     {#<script src="{% static "scripts/bootstrap-dropdown.js" %}"></script>#}
@@ -12,6 +13,11 @@
     {% endblock %}
     {% block style %}
     {% endblock %}
+    <script type='text/javascript'>
+     	$(document).ready(function () {
+     		$('[rel=tooltip]').tooltip();
+ 		});
+    </script>
     <style>
     li {list-style-type: None;}
     .grey {color: gray;}
@@ -41,7 +47,7 @@
                 <li> <a href='{% url bills metadata.abbreviation %}'>Bills</a> </li>
                 <li> <a href='{% url legislators metadata.abbreviation %}'>Legislators</a> </li>
                 <li> <a href='{% url committees metadata.abbreviation %}'>Committees</a> </li>
-                <li> <a href='../speeches'>Speeches</a> </li>
+                <li> <a href='{% url speeches metadata.abbreviation %}'>Speeches</a> </li>
                 {% endif %}
                 {% block menu %}{% endblock %}
             </ul>
