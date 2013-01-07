@@ -1,0 +1,36 @@
+.member-list {
+/*display:compact;*/
+}
+
+/*th.theader {text-align:center;}*/
+
+img.thumb {
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	padding:1px;
+	border-color:transparent;
+	vertical-align: top
+	}
+
+ul#grid {
+  padding: 0;
+  list-style: none;
+  margin: 20px auto 0;
+  width: 860px;  
+  }
+
+#grid li {
+  float: left;
+  padding: 0;
+  margin: 0 5px 0px 5px;
+  } 
+  
+#grid li a {
+  display: block;
+  }
+
+#grid li img {
+  background-color: transparent;
+  padding: 0px; margin: 0;
+  }
